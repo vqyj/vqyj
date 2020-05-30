@@ -56,6 +56,7 @@ function vigenere(input,key,eOrD){
     sepPassword[i] = password[i];
   };
 
+//↵
 //STEP 2, ASSIGNMENT OF STRINGS TO NUMERALS+++++++++++++++++++++++++++++++++++++++++++
 //    will return empty when there is an error
 //    this is also the step where space will be reassign as 0, or the same as the underscore
@@ -139,12 +140,8 @@ function vigenere(input,key,eOrD){
 
 
 //STEP 5, CONCATENATING ALL CHARACTERS+++++++++++++++++++++++++++++++++++++++
-  let output;
-    if(eOrD == 1){
-      output  = "d ="
-    }else{
-      output  = "e ="
-    }
+  let output = "";
+
   for(let i = 0; i < text.length; i++){
     output+=charsInputAgain[i]
   }
