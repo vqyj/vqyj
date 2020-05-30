@@ -1,23 +1,41 @@
 let vig;
+let status = 0
 
 function setup(){
   noCanvas()
 
 
-  let para = createP()
-  let dec = createP()
+
+  let but = createButton('e')
 
 
+  but.mousePressed(change)
+
+  function change(){
+    go()
+    if(status == 0){
+      status = 1
+      but.html('d')
+    }else if(status == 1){
+      status = 0
+      but.html('e')
+    }
+  }
+
+
+  //THIS WILL CHANGE THE PARA DEPENDING ON WHAT IS WRITTEN HERE
   let textBox = createElement('textarea',"")
   textBox.input(go)
 
   let pw = createElement('textarea',"")
   pw.input(go)
 
-
+  //THE PARAGRAPH~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  let para = createP()
 
   function go(){
-    vig = vigenere(textBox.value(), pw.value(), 0)
+
+    vig = vigenere(textBox.value(), pw.value(), status)
 
     //REPLACE ENTER(\r\n|\r|\n) TO <br>
     function nl2br(str){
@@ -26,9 +44,7 @@ function setup(){
     vig = nl2br(vig)
 
 
-
-    para.html(vig)
-    dec.html(vigenere(textBox.value(), pw.value(), 1))
+    para.html(vig);
   }
 
 
