@@ -12,7 +12,7 @@ function setup(){
   but.mousePressed(change)
 
   function change(){
-    go()
+
     if(status == 0){
       status = 1
       but.html('d')
@@ -20,6 +20,7 @@ function setup(){
       status = 0
       but.html('e')
     }
+      go()
   }
 
 
